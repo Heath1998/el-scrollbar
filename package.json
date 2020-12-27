@@ -1,0 +1,69 @@
+{
+  "name": "v-element-scrollbar",
+  "version": "1.0.7",
+  "description": "基于vue和element-ui的scrollbar",
+  "main": "dist/vElementScrollbar.js",
+  "scripts": {
+    "plugin": "webpack -p --config build/webpack.plugin.config.js",
+    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.config.js",
+    "test": "webpack-dev-server --inline --progress --mode production --config build/webpack.dev.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wangjunwei531/v-element-scrollbar.git"
+  },
+  "keywords": [
+    "vue",
+    "vue.js",
+    "element-ui",
+    "v-element-scrollbar"
+  ],
+  "author": "wjw1131982923",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wangjunwei531/v-element-scrollbar/issues"
+  },
+  "homepage": "https://github.com/wangjunwei531/v-element-scrollbar#readme",
+  "devDependencies": {
+    "@babel/core": "^7.11.4",
+    "@babel/plugin-transform-modules-umd": "^7.10.4",
+    "@babel/plugin-transform-runtime": "^7.11.0",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/runtime": "^7.11.2",
+    "@vue/babel-helper-vue-jsx-merge-props": "^1.0.0",
+    "@vue/babel-plugin-transform-vue-jsx": "^1.1.2",
+    "autoprefixer": "^9.8.6",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^4.2.2",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "html-webpack-plugin": "^4.3.0",
+    "postcss-import": "^12.0.1",
+    "postcss-loader": "^3.0.0",
+    "postcss-url": "^8.0.0",
+    "sass-loader": "^10.0.1",
+    "style-loader": "^1.2.1",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "url-loader": "^4.1.0",
+    "vue-loader": "^15.9.3",
+    "vue-style-loader": "^4.1.2",
+    "vue-template-compiler": "^2.6.12",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-middleware": "^3.7.2",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^5.1.2"
+  },
+  "engines": {
+    "node": ">= 6.0.0",
+    "npm": ">= 3.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
+  "dependencies": {
+    "vue": "^2.6.12"
+  }
+}
