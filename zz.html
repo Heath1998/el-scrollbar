@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  .aaa {
+    width: 90%;
+    height: 300px;
+    position: fixed;
+    top: 300px;
+    overflow: auto;
+  }
+  .aaa div {
+    height: 80px;
+    background-color: blue;
+
+  }
+</style>
+<body>
+  <div class="aaa"  id="one">
+    <div style="background-color: red;">1</div>
+    <div>3</div>
+    <div>2</div>
+    <div>2</div>
+    <div>2</div>
+    <div>2</div>
+    <div>2</div>
+    <div style="background-color: yellow;">2</div>
+  </div>
+  <div style="height: 2000px;">
+    <div style="height: 100px;">1</div>
+    <div style="height: 100px;">12</div>
+    <div style="height: 100px;">13</div>
+    <div style="height: 100px;">14</div>
+    <div style="height: 100px;">15</div>
+    <div style="height: 100px;">1</div>
+    <div style="height: 100px;">17</div>
+    <div style="height: 100px;">18</div>
+    <div style="height: 100px;">19</div>
+    <div style="height: 100px;">10</div>
+    <div style="height: 100px;">155</div>
+    <div style="height: 100px;">144</div>
+    <div style="height: 100px;">1333</div>
+    <div style="height: 100px;">111</div>
+    <div style="height: 100px;">12321312</div>
+  </div>
+</body>
+<script>
+
+
+
+
+const preventDefault = (event) => {
+    if (!event.cancelable) return
+
+    event.preventDefault()
+    }
+
+
+  var element = document.getElementById('one');
+  var targetElement = element;
+
+    let initialClientY = 0
+    let initialClientX = 0
+    element.ontouchstart = (event) => {
+      initialClientY = event.targetTouches[0].clientY
+      initialClientX = event.targetTouches[0].clientX
+    }
+    element.ontouchmove = (event) => {
+      if (event.targetTouches.length !== 1) return
+
+      if (targetElement) {
+        const {
+            scrollTop,
+            scrollLeft,
+            scrollWidth,
+            scrollHeight,
+            clientWidth,
+            clientHeight,
+        } = targetElement
+        const clientX = event.targetTouches[0].clientX - initialClientX
+        const clientY = event.targetTouches[0].clientY - initialClientY
+        const isVertical = Math.abs(clientY) > Math.abs(clientX)
+
+        const isOnTop = clientY > 0 && scrollTop === 0
+        const isOnLeft = clientX > 0 && scrollLeft === 0
+        const isOnRight = clientX < 0 && scrollLeft + clientWidth + 1 >= scrollWidth
+        const isOnBottom = clientY < 0 && scrollTop + clientHeight + 1 >= scrollHeight
+
+        if (
+            (isVertical && (isOnTop || isOnBottom)) ||
+            (!isVertical && (isOnLeft || isOnRight))
+        ) {
+            return preventDefault(event);
+        }
+        console.log('222')
+        event.stopPropagation()
+        
+    }
+
+
+}
+</script>
+
+<!-- <script>
+  var element = document.getElementById('one')
+  document.addEventListener('touchmove', function(e) {
+    preventDefault(e);
+    console.log('woshinidie')
+  },{ passive: false })
+</script> -->
+</html>

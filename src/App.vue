@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-      <div style="width:100%;height:100%">
+    <body-scroll></body-scroll>
+      <!-- <div style="width:100%;height:100%">
           <v-element-scrollbar direction="both">
               <div style="height:100px; background:red;"></div>
               <div style="height:100px; background:blue;"></div>
@@ -35,14 +36,17 @@
               <div style="height:100px; background:red;"></div>
               <div style="height:100px; background:blue;"></div>
           </v-element-scrollbar>
-      </div>
+      </div> -->
   </div>
 </template>
 
 <script>
-
+import bodyScroll from './bodyScroll.vue'
 export default {
   name: 'App',
+  components: {
+    bodyScroll
+  }
 }
 </script>
 
